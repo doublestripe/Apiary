@@ -1,0 +1,60 @@
+FORMAT: 1A
+HOST: http://private-60c32f-spiderlog184.apiary-mock.com
+
+#Spider Log API
+Provide a service for the Spider Log App family
+
+#Group Spiders
+Access to Spider Resource
+
+## My Spiders [/spiders{?page,size}]
+### Get all my spider sightings [GET]
++ Parameters
+    + page (required, number, `1`)... Page Number
+    + size  (required, number, `10`)... Page Size
+    
++ Request
+
+    + Header
+
+            Authorization: Basic dXNlcjpwYXNzd29yZA==
+            x-api-version: 1.0
+
++ Response 200 (application/json)
+
+    + Header
+    
+            ETag : "euyfewuyfvew76f7"
+            cache-control : max-age=600
+        
+    + Body
+    
+            {
+                "page" :
+                {
+                    "number" : 1,
+                    "size" : 10,
+                    "totalPages" : 20
+                },
+                "spiders" : 
+                [
+                    {
+                        "sightedAt" : "2016-02-26T07:00",
+                        "imageUrl"  : "http://website/uid-1234.jpg",
+                        "description" : "Spider 1",
+                        "tags" : ["Stripy"]
+                    },
+                    {
+                        "sightedAt" : "2016-02-26T07:00",
+                        "imageUrl"  : "http://website/uid-1234.jpg",
+                        "description" : "Spider 2",
+                        "tags" : ["Big"]
+                    },
+                    {
+                        "sightedAt" : "2016-02-26T07:00",
+                        "imageUrl"  : "http://website/uid-1234.jpg",
+                        "description" : "Spider 3",
+                        "tags" : ["Big", "Stripy"]
+                    }
+                ]
+            }
